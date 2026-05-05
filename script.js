@@ -1,306 +1,220 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const html = document.documentElement;
-    const langToggle = document.getElementById('langToggle');
-    const themeToggle = document.getElementById('themeToggle');
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const contactForm = document.getElementById('contactForm');
-    const navbar = document.querySelector('.navbar');
+document.addEventListener('DOMContentLoaded', () => {
 
-    let currentLang = 'ar';
+    // --- 1. Custom Color Bends Background (React Component Logic Translated to Vanilla JS) ---
+    class ColorBends {
+        constructor(canvasId) {
+            this.canvas = document.getElementById(canvasId);
+            this.ctx = this.canvas.getContext('2d');
+            this.time = 0;
 
-    function setLanguage(lang) {
-        currentLang = lang;
-        html.lang = lang;
-        html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            // Parameters strictly matching your request:
+            this.color = { r: 168, g: 85, b: 247 }; // #A855F7
+            this.speed = 0.005; // Mapped from 0.2 for optimal 60fps smoothing
+            this.frequency = 1.0;
+            this.noiseLevel = 0.15;
+            this.bandWidth = 0.14;
+            this.intensity = 1.3;
+            this.fadeTop = 0.75;
+            this.rotation = 90; // Handled structurally by drawing orientation
 
-        document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-            el.textContent = el.getAttribute(`data-${lang}`);
-        });
-
-        document.querySelectorAll('[data-en-placeholder], [data-ar-placeholder]').forEach(el => {
-            const placeholder = lang === 'ar' 
-                ? el.getAttribute('data-ar-placeholder') 
-                : el.getAttribute('data-en-placeholder');
-            if (placeholder) el.placeholder = placeholder;
-        });
-
-        const langBtn = langToggle.querySelector('.current-lang');
-        langBtn.textContent = lang === 'ar' ? 'EN' : 'ع';
-        
-        document.querySelectorAll('.current-lang').forEach(el => {
-            el.textContent = lang === 'ar' ? 'EN' : 'ع';
-        });
-
-        localStorage.setItem('futureweb-lang', lang);
-    }
-
-    function toggleLanguage() {
-        setLanguage(currentLang === 'ar' ? 'en' : 'ar');
-    }
-
-    function setTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('futureweb-theme', theme);
-    }
-
-    function toggleTheme() {
-        const currentTheme = html.getAttribute('data-theme');
-        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    }
-
-    langToggle.addEventListener('click', toggleLanguage);
-    themeToggle.addEventListener('click', toggleTheme);
-
-    menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
-
-    const savedLang = localStorage.getItem('futureweb-lang');
-    if (savedLang) {
-        setLanguage(savedLang);
-    } else {
-        setLanguage('ar');
-    }
-
-    const savedTheme = localStorage.getItem('futureweb-theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    } else {
-        setTheme('dark');
-    }
-
-    // Navbar scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+            this.resize();
+            window.addEventListener('resize', () => this.resize());
+            this.animate();
         }
-        
-        lastScroll = currentScroll;
-    });
 
-    // Scroll animations with Intersection Observer
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+        resize() {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+        }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('animate-in');
-                }, index * 100);
+        animate() {
+            this.time += this.speed;
+            const { width, height } = this.canvas;
+
+            // Deep dark background
+            this.ctx.fillStyle = '#05010a';
+            this.ctx.fillRect(0, 0, width, height);
+
+            // Draw fluid bands
+            const numBands = Math.floor(30 * this.frequency);
+            const bandHeight = height / numBands;
+
+            this.ctx.globalCompositeOperation = 'screen';
+
+            for (let i = 0; i < numBands; i++) {
+                this.ctx.beginPath();
+                const startY = i * bandHeight;
+
+                for (let x = 0; x <= width; x += 15) {
+                    const normalizedX = x / width;
+                    
+                    // Complex noise algorithm simulating the React shader
+                    const noise = Math.sin(normalizedX * 12 + this.time + i * 0.1) *
+                                  Math.cos(normalizedX * 8 - this.time * 0.8) *
+                                  (height * this.noiseLevel);
+
+                    const y = startY + noise;
+
+                    if (x === 0) this.ctx.moveTo(x, y);
+                    else this.ctx.lineTo(x, y);
+                }
+
+                this.ctx.lineWidth = height * this.bandWidth * 0.1;
+                const alpha = 0.03 * this.intensity;
+                this.ctx.strokeStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
+                this.ctx.stroke();
             }
-        });
-    }, observerOptions);
 
-    // Observe all cards and sections
-    const animatedElements = document.querySelectorAll(
-        '.service-card, .pricing-card, .why-card, .addon-card, .section-header, .stat, .hero-content > *'
-    );
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
-    });
+            this.ctx.globalCompositeOperation = 'source-over';
 
-    // Add animation CSS dynamically
-    const animationStyle = document.createElement('style');
-    animationStyle.textContent = `
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+            // Apply fadeTop effect
+            const fadeHeight = height * this.fadeTop;
+            const gradient = this.ctx.createLinearGradient(0, 0, 0, fadeHeight);
+            gradient.addColorStop(0, '#05010a'); 
+            gradient.addColorStop(1, 'rgba(5, 1, 10, 0)');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(0, 0, width, fadeHeight);
+
+            requestAnimationFrame(() => this.animate());
         }
-        
-        .hero-content > * {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
-        .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    `;
-    document.head.appendChild(animationStyle);
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Form submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = currentLang === 'ar' ? '...' : '...';
-            submitBtn.disabled = true;
-
-            // Add loading animation
-            submitBtn.style.position = 'relative';
-            submitBtn.innerHTML = `<span class="btn-loader"></span>${currentLang === 'ar' ? 'جاري الإرسال' : 'Sending...'}`;
-
-            setTimeout(() => {
-                alert(currentLang === 'ar'
-                    ? 'شكراً لك! تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.'
-                    : 'Thank you! Your message has been sent successfully. We will contact you soon.');
-
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
     }
 
-    // Button hover effects
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mouseenter', function(e) {
-            const rect = this.getBoundingClientRect();
+    // Initialize the background
+    new ColorBends('colorBendsCanvas');
+
+    // --- 2. Custom Mouse Glow Tracker ---
+    const mouseGlow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', (e) => {
+        mouseGlow.style.left = `${e.clientX}px`;
+        mouseGlow.style.top = `${e.clientY}px`;
+    });
+
+    // --- 3. Sticky Navbar ---
+    const header = document.querySelector('.main-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    });
+
+    // --- 4. 3D Tilt Effect for Cards ---
+    const tiltElements = document.querySelectorAll('.tilt-element');
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
             
-            this.style.setProperty('--x', x + 'px');
-            this.style.setProperty('--y', y + 'px');
+            const rotateX = ((y - centerY) / centerY) * -10; 
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            el.style.zIndex = "10";
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            el.style.zIndex = "1";
         });
     });
 
-    // Card hover animations
-    const cards = document.querySelectorAll('.service-card, .pricing-card, .why-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-        });
+    // --- 5. Cinematic Auto Scroll ---
+    const autoScrollBtn = document.getElementById('autoScrollBtn');
+    const autoScrollText = autoScrollBtn.querySelector('.text');
+    let isAutoScrolling = false;
+    let animationFrameId;
 
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-        });
-    });
-
-    // Add floating particles
-    function createParticles() {
-        const bgAnimation = document.querySelector('.bg-animation');
-        if (!bgAnimation) return;
-
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.cssText = `
-                position: absolute;
-                width: ${Math.random() * 4 + 2}px;
-                height: ${Math.random() * 4 + 2}px;
-                background: var(--accent);
-                border-radius: 50%;
-                opacity: ${Math.random() * 0.5 + 0.1};
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                animation: float${Math.random() > 0.5 ? 'Reverse' : ''} ${Math.random() * 10 + 10}s ease-in-out infinite;
-                animation-delay: ${Math.random() * 5}s;
-            `;
-            bgAnimation.appendChild(particle);
+    function smoothScroll() {
+        if (isAutoScrolling) {
+            window.scrollBy(0, 1);
+            if ((window.innerHeight + Math.ceil(window.scrollY)) >= document.body.offsetHeight) {
+                toggleAutoScroll();
+            } else {
+                animationFrameId = requestAnimationFrame(smoothScroll);
+            }
         }
     }
 
-    createParticles();
-
-    // Add particle animation style
-    const particleStyle = document.createElement('style');
-    particleStyle.textContent = `
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
-            25% { transform: translate(30px, -30px) rotate(90deg); opacity: 0.6; }
-            50% { transform: translate(0, -60px) rotate(180deg); opacity: 0.3; }
-            75% { transform: translate(-30px, -30px) rotate(270deg); opacity: 0.6; }
+    function toggleAutoScroll() {
+        isAutoScrolling = !isAutoScrolling;
+        autoScrollBtn.classList.toggle('active', isAutoScrolling);
+        
+        if (isAutoScrolling) {
+            autoScrollText.textContent = 'إيقاف التمرير';
+            animationFrameId = requestAnimationFrame(smoothScroll);
+        } else {
+            autoScrollText.textContent = 'تمرير تلقائي';
+            cancelAnimationFrame(animationFrameId);
         }
-        @keyframes floatReverse {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
-            25% { transform: translate(-30px, 30px) rotate(-90deg); opacity: 0.6; }
-            50% { transform: translate(0, 60px) rotate(-180deg); opacity: 0.3; }
-            75% { transform: translate(30px, 30px) rotate(-270deg); opacity: 0.6; }
+    }
+    autoScrollBtn.addEventListener('click', toggleAutoScroll);
+
+    // --- 6. Poetic Typewriter Animation ---
+    const poetryLines = [
+        "أَنَا الَّذِي نَظَرَ الأَعْمَى إِلَى أَدَبِي",
+        "وَأَسْمَعَتْ كَلِمَاتِي مَنْ بِهِ صَمَمُ",
+        "أَنَامُ مِلْءَ جُفُونِي عَنْ شَوَارِدِهَا",
+        "وَيَسْهَرُ الْخَلْقُ جَرَّاهَا وَيَخْتَصِمُ",
+        "وَجَاهِلٍ مَدَّهُ فِي جَهْلِهِ ضَحِكِي",
+        "حَتَّى أَتَتْهُ يَدٌ فَرَّاسَةٌ وَفَمُ"
+    ];
+    
+    const poetryContainer = document.getElementById('poetryContainer');
+    let isTypingStarted = false;
+
+    function typePoetry() {
+        if (isTypingStarted) return;
+        isTypingStarted = true;
+        let lineIndex = 0;
+
+        function typeLine() {
+            if (lineIndex >= poetryLines.length) return;
+            
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'poetry-line';
+            lineDiv.style.opacity = '1';
+            lineDiv.style.transform = 'translateY(0)';
+            poetryContainer.appendChild(lineDiv);
+            
+            let charIndex = 0;
+            const currentLine = poetryLines[lineIndex];
+            
+            const typingInterval = setInterval(() => {
+                if (charIndex < currentLine.length) {
+                    lineDiv.textContent += currentLine.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    lineIndex++;
+                    setTimeout(typeLine, 800);
+                }
+            }, 60);
         }
-    `;
-    document.head.appendChild(particleStyle);
-
-    // Mobile touch improvements
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.btn, .nav-links a, .mobile-menu a').forEach(el => {
-            el.style.webkitTapHighlightColor = 'transparent';
-        });
-
-        // Add touch feedback
-        document.querySelectorAll('.service-card, .pricing-card, .why-card, .addon-card').forEach(card => {
-            card.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
-            card.addEventListener('touchend', function() {
-                this.style.transform = '';
-            });
-        });
+        typeLine();
     }
 
-    // Parallax effect on scroll (subtle)
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                const scrolled = window.pageYOffset;
-                const bgGradients = document.querySelectorAll('.bg-gradient');
-                
-                bgGradients.forEach((bg, index) => {
-                    const speed = (index + 1) * 0.05;
-                    bg.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-                
-                ticking = false;
-            });
-            ticking = true;
+    const aboutSection = document.getElementById('about');
+    const poetryObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            typePoetry();
+            poetryObserver.disconnect();
         }
+    }, { threshold: 0.5 });
+    
+    poetryObserver.observe(aboutSection);
+
+    // --- 7. Form Demo ---
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('.submit-btn span');
+        submitBtn.textContent = 'تم الإرسال بنجاح!';
+        setTimeout(() => {
+            contactForm.reset();
+            submitBtn.textContent = 'إرسال الرسالة';
+        }, 3000);
     });
 
-    // Add loading state
-    window.addEventListener('load', function() {
-        document.body.classList.add('loaded');
-    });
 });
