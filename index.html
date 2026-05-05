@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Web | ويب المستقبل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="bg-gradient bg-gradient-1"></div>
+        <div class="bg-gradient bg-gradient-2"></div>
+        <div class="bg-gradient bg-gradient-3"></div>
+        <div class="grid-pattern"></div>
+    </div>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text" data-en="Future Web" data-ar="ويب المستقبل">ويب المستقبل</span>
+            </a>
+            <div class="nav-links">
+                <a href="#services" data-en="Services" data-ar="الخدمات">الخدمات</a>
+                <a href="#pricing" data-en="Pricing" data-ar="الأسعار">الأسعار</a>
+                <a href="#why-us" data-en="Why Us" data-ar="لماذا نحن">لماذا نحن</a>
+                <a href="#contact" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="current-lang">EN</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services" data-en="Services" data-ar="الخدمات">الخدمات</a>
+            <a href="#pricing" data-en="Pricing" data-ar="الأسعار">الأسعار</a>
+            <a href="#why-us" data-en="Why Us" data-ar="لماذا نحن">لماذا نحن</a>
+            <a href="#contact" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge" data-en="Professional Web Solutions" data-ar="حلول ويب احترافية">حلول ويب احترافية</div>
+            <h1 class="hero-title">
+                <span data-en="Transform Your Ideas Into" data-ar="حوّل أفكارك إلى">حوّل أفكارك إلى</span>
+                <span class="highlight" data-en="Professional Websites" data-ar="مواقع احترافية">مواقع احترافية</span>
+            </h1>
+            <p class="hero-desc" data-en="We transform your vision into fully functional websites and online stores. From design to deployment, we handle everything so you can focus on growing your business." data-ar="نحوّل رؤيتك إلى مواقع الكترونية ومتاجر الكترونية كاملة الوظائف. من التصميم إلى الإطلاق، نتولى كل شيء لتتمكن من التركيز على تطوير عملك.">نحوّل رؤيتك إلى مواقع الكترونية ومتاجر الكترونية كاملة الوظائف. من التصميم إلى الإطلاق، نتولى كل شيء لتتمكن من التركيز على تطوير عملك.</p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-ar="عرض الخطط">عرض الخطط</a>
+                <a href="#contact" class="btn btn-outline" data-en="Get Started" data-ar="ابدأ الآن">ابدأ الآن</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">98%</span>
+                    <span class="stat-label" data-en="Client Satisfaction" data-ar="رضا العملاء">رضا العملاء</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">48h</span>
+                    <span class="stat-label" data-en="Average Delivery" data-ar="متوسط التسليم">متوسط التسليم</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label" data-en="Support" data-ar="دعم فني">دعم فني</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Our Services" data-ar="خدماتنا">خدماتنا</span>
+                <h2 class="section-title" data-en="Comprehensive Web Solutions" data-ar="حلول ويب شاملة">حلول ويب شاملة</h2>
+                <p class="section-desc" data-en="From concept to launch, we provide end-to-end web development services tailored to your business needs." data-ar="من الفكرة إلى الإطلاق، نوفر خدمات تطوير ويب شاملة مصممة لاحتياجات عملك.">من الفكرة إلى الإطلاق، نوفر خدمات تطوير ويب شاملة مصممة لاحتياجات عملك.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-en="UI/UX Design" data-ar="تصميم UI/UX">تصميم UI/UX</h3>
+                    <p class="service-desc" data-en="User-centered design that combines aesthetics with functionality for an exceptional user experience." data-ar="تصميم مركز حول المستخدم يجمع بين الجمال والوظائف لتجربة مستخدم استثنائية.">تصميم مركز حول المستخدم يجمع بين الجمال والوظائف لتجربة مستخدم استثنائية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-en="Web Development" data-ar="تطوير المواقع">تطوير المواقع</h3>
+                    <p class="service-desc" data-en="Custom websites and e-commerce stores built with modern technologies for optimal performance." data-ar="مواقع الكترونية ومتاجر الكترونية مخصصة مبنية بتقنيات حديثة لأداء مثالي.">مواقع الكترونية ومتاجر الكترونية مخصصة مبنية بتقنيات حديثة لأداء مثالي.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-en="Hosting Setup" data-ar="إعداد الاستضافة">إعداد الاستضافة</h3>
+                    <p class="service-desc" data-en="Reliable hosting solutions with fast load times and 99.9% uptime guarantee." data-ar="حلول استضافة موثوقة مع أوقات تحميل سريعة وضمان وقت تشغيل 99.9%.">حلول استضافة موثوقة مع أوقات تحميل سريعة وضمان وقت تشغيل 99.9%.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-en="Domain Connection" data-ar="ربط النطاق">ربط النطاق</h3>
+                    <p class="service-desc" data-en="Professional domain registration and seamless connection to your website." data-ar="تسجيل نطاقات محترفة وربط سلس بموقعك الإلكتروني.">تسجيل نطاقات محترفة وربط سلس بموقعك الإلكتروني.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-en="Ready-to-Use Delivery" data-ar="تسليم جاهز للاستخدام">تسليم جاهز للاستخدام</h3>
+                    <p class="service-desc" data-en="Receive a fully functional, deployed website ready to start serving your customers immediately." data-ar="استلم موقعاً الكترونياً كامل الوظائف ومُطلقاً جاهزاً لخدمة عملائك فوراً.">استلم موقعاً الكترونياً كامل الوظائف ومُطلقاً جاهزاً لخدمة عملائك فوراً.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Pricing Plans" data-ar="الخطط السعرية">الخطط السعرية</span>
+                <h2 class="section-title" data-en="Choose Your Perfect Plan" data-ar="اختر خطتك المثالية">اختر خطتك المثالية</h2>
+                <p class="section-desc" data-en="Transparent pricing with no hidden fees. Select the plan that best fits your business requirements." data-ar="تسعير شفاف بدون تكاليف مخفية. اختر الخطة التي تناسب متطلبات عملك.">تسعير شفاف بدون تكاليف مخفية. اختر الخطة التي تناسب متطلبات عملك.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name" data-en="Basic Plan" data-ar="الخطة الأساسية">الخطة الأساسية</h3>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">150</span>
+                        </div>
+                        <p class="pricing-desc" data-en="Perfect for small businesses and personal websites" data-ar="مثالي للشركات الصغيرة والمواقع الشخصية">مثالي للشركات الصغيرة والمواقع الشخصية</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="1-2 pages" data-ar="1-2 صفحات">1-2 صفحات</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Clean responsive design" data-ar="تصميم متجاوب نظيف">تصميم متجاوب نظيف</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Mobile optimization" data-ar="تحسين للجوال">تحسين للجوال</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Social media integration" data-ar="ربط وسائل التواصل">ربط وسائل التواصل</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Domain included (1 year)" data-ar="النطاق مشمول (سنة)">النطاق مشمول (سنة)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Basic deployment" data-ar="النشر الأساسي">النشر الأساسي</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Delivery: 3-5 days" data-ar="التسليم: 3-5 أيام">التسليم: 3-5 أيام</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline full-width" data-en="Get Started" data-ar="ابدأ الآن">ابدأ الآن</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge" data-en="Most Popular" data-ar="الأكثر شعبية">الأكثر شعبية</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name" data-en="Pro Plan" data-ar="الخطة الاحترافية">الخطة الاحترافية</h3>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">300</span>
+                        </div>
+                        <p class="pricing-desc" data-en="Ideal for growing businesses needing more features" data-ar="مثالي للشركات النامية التي تحتاج المزيد من الميزات">مثالي للشركات النامية التي تحتاج المزيد من الميزات</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="3-5 pages" data-ar="3-5 صفحات">3-5 صفحات</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Enhanced custom design" data-ar="تصميم مخصص محسّن">تصميم مخصص محسّن</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Contact form integration" data-ar="ربط نموذج الاتصال">ربط نموذج الاتصال</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Basic SEO setup" data-ar="إعداد SEO الأساسي">إعداد SEO الأساسي</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Performance optimization" data-ar="تحسين الأداء">تحسين الأداء</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="2 revisions" data-ar="مراجعتان">مراجعتان</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Free hosting (1st month)" data-ar="استضافة مجانية (الشهر الأول)">استضافة مجانية (الشهر الأول)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Domain included (1 year)" data-ar="النطاق مشمول (سنة)">النطاق مشمول (سنة)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Delivery: 5-7 days" data-ar="التسليم: 5-7 أيام">التسليم: 5-7 أيام</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary full-width" data-en="Order Now" data-ar="اطلب الآن">اطلب الآن</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name" data-en="Super Plan" data-ar="الخطة الكبرى">الخطة الكبرى</h3>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount">500</span>
+                        </div>
+                        <p class="pricing-desc" data-en="Complete solution for businesses and e-commerce" data-ar="حل كامل للشركات والمتاجر الإلكترونية">حل كامل للشركات والمتاجر الإلكترونية</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="5-10 pages or small e-commerce" data-ar="5-10 صفحات أو متجر صغير">5-10 صفحات أو متجر صغير</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Advanced semi-custom design" data-ar="تصميم شبه مخصص متقدم">تصميم شبه مخصص متقدم</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Content management capability" data-ar="إدارة المحتوى">إدارة المحتوى</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Product listing (for stores)" data-ar="قائمة المنتجات (للمتاجر)">قائمة المنتجات (للمتاجر)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Improved SEO setup" data-ar="تحسين SEO">تحسين SEO</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Security basics" data-ar="أمن أساسي">أمن أساسي</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Performance optimization" data-ar="تحسين الأداء">تحسين الأداء</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Post-launch support (15 days)" data-ar="دعم ما بعد الإطلاق (15 يوم)">دعم ما بعد الإطلاق (15 يوم)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Multiple revisions" data-ar="مراجعات متعددة">مراجعات متعددة</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Free hosting (1st month)" data-ar="استضافة مجانية (الشهر الأول)">استضافة مجانية (الشهر الأول)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Domain included (1 year)" data-ar="النطاق مشمول (سنة)">النطاق مشمول (سنة)</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span data-en="Delivery: 7-10 days" data-ar="التسليم: 7-10 أيام">التسليم: 7-10 أيام</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline full-width" data-en="Get Started" data-ar="ابدأ الآن">ابدأ الآن</a>
+                </div>
+            </div>
+
+            <div class="addons">
+                <h3 class="addons-title" data-en="Optional Add-ons" data-ar="إضافات اختيارية">إضافات اختيارية</h3>
+                <div class="addons-grid">
+                    <div class="addon-card">
+                        <div class="addon-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                        <div class="addon-content">
+                            <h4 data-en="Monthly Website Management" data-ar="إدارة الموقع الشهرية">إدارة الموقع الشهرية</h4>
+                            <span class="addon-price">$50<span data-en="/month" data-ar="/شهر">/شهر</span></span>
+                        </div>
+                    </div>
+                    <div class="addon-card">
+                        <div class="addon-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <div class="addon-content">
+                            <h4 data-en="Advanced SEO" data-ar="SEO متقدم">SEO متقدم</h4>
+                            <span class="addon-price">$80<span data-en="/project" data-ar="/مشروع">/مشروع</span></span>
+                        </div>
+                    </div>
+                    <div class="addon-card">
+                        <div class="addon-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                        </div>
+                        <div class="addon-content">
+                            <h4 data-en="Content Writing" data-ar="كتابة المحتوى">كتابة المحتوى</h4>
+                            <span class="addon-price">$40<span data-en="/page" data-ar="/صفحة">/صفحة</span></span>
+                        </div>
+                    </div>
+                    <div class="addon-card">
+                        <div class="addon-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <div class="addon-content">
+                            <h4 data-en="Logo Design" data-ar="تصميم الشعار">تصميم الشعار</h4>
+                            <span class="addon-price">$60<span data-en="/project" data-ar="/مشروع">/مشروع</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Why Choose Us" data-ar="لماذا تختارنا">لماذا تختارنا</span>
+                <h2 class="section-title" data-en="Excellence in Every Detail" data-ar="التميز في كل تفصيل">التميز في كل تفصيل</h2>
+                <p class="section-desc" data-en="We are committed to delivering exceptional results that exceed your expectations." data-ar="نحن ملتزمون بتقديم نتائج استثنائية تتجاوز توقعاتك.">نحن ملتزمون بتقديم نتائج استثنائية تتجاوز توقعاتك.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 data-en="Premium Quality" data-ar="جودة متميزة">جودة متميزة</h3>
+                    <p data-en="We deliver websites that stand out with exceptional design and flawless functionality." data-ar="نقدم مواقع الكترونية تبرز بتصميم استثنائي ووظائف مثالية.">نقدم مواقع الكترونية تبرز بتصميم استثنائي ووظائف مثالية.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 data-en="Fast Delivery" data-ar="تسليم سريع">تسليم سريع</h3>
+                    <p data-en="Your website will be ready within days, not months. We value your time." data-ar="موقعك الكتروني سيكون جاهزاً خلال أيام، لا أشهر. نقدر وقتك.">موقعك الكتروني سيكون جاهزاً خلال أيام، لا أشهر. نقدر وقتك.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 data-en="Expert Team" data-ar="فريق خبير">فريق خبير</h3>
+                    <p data-en="Our skilled professionals bring years of experience in design and development." data-ar="يأتي محترفونا المهرة بخبرة سنوات في التصميم والتطوير.">يأتي محترفونا المهرة بخبرة سنوات في التصميم والتطوير.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 data-en="Reliable Support" data-ar="دعم موثوق">دعم موثوق</h3>
+                    <p data-en="We provide ongoing support to ensure your website continues to perform optimally." data-ar="نقدم دعماً مستمراً لضمان استمرار موقعك في العمل بأفضل أداء.">نقدم دعماً مستمراً لضمان استمرار موقعك في العمل بأفضل أداء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Contact Us" data-ar="اتصل بنا">اتصل بنا</span>
+                <h2 class="section-title" data-en="Start Your Project Today" data-ar="ابدأ مشروعك اليوم">ابدأ مشروعك اليوم</h2>
+                <p class="section-desc" data-en="Ready to transform your idea into reality? Contact us now and let's build something great together." data-ar="على استعداد لتحويل فكرتك إلى واقع؟ تواصل معنا الآن لنتعاون ونبني شيئاً عظيماً معاً.">على استعداد لتحويل فكرتك إلى واقع؟ تواصل معنا الآن لنتعاون ونبني شيئاً عظيماً معاً.</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" data-en="Full Name" data-ar="الاسم الكامل">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل" data-ar-placeholder="أدخل اسمك الكامل" data-en-placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-en="Email Address" data-ar="البريد الإلكتروني">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني" data-ar-placeholder="أدخل بريدك الإلكتروني" data-en-placeholder="Enter your email address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" data-en="Phone Number" data-ar="رقم الهاتف">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" data-ar-placeholder="أدخل رقم هاتفك" data-en-placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="plan" data-en="Selected Plan" data-ar="الخطة المختارة">الخطة المختارة</label>
+                        <select id="plan" name="plan">
+                            <option value="" data-en="Select a plan" data-ar="اختر خطة">اختر خطة</option>
+                            <option value="basic" data-en="Basic Plan - $150" data-ar="الخطة الأساسية - 150 دولار">الخطة الأساسية - 150 دولار</option>
+                            <option value="pro" data-en="Pro Plan - $300" data-ar="الخطة الاحترافية - 300 دولار">الخطة الاحترافية - 300 دولار</option>
+                            <option value="super" data-en="Super Plan - $500" data-ar="الخطة الكبرى - 500 دولار">الخطة الكبرى - 500 دولار</option>
+                            <option value="custom" data-en="Custom Project" data-ar="مشروع مخصص">مشروع مخصص</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-en="Project Details" data-ar="تفاصيل المشروع">تفاصيل المشروع</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="وصف موجز لفكرتك ومشروعك..." data-ar-placeholder="وصف موجز لفكرتك ومشروعك..." data-en-placeholder="Brief description of your idea and project..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" data-en="Send Message" data-ar="إرسال الرسالة">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Build Your Online Presence?" data-ar="على استعداد لبناء حضورك الإلكتروني؟">على استعداد لبناء حضورك الإلكتروني؟</h2>
+                <p data-en="Let's create a stunning website that represents your brand and drives results." data-ar="لننشئ موقعاً إلكترونياً مذهلاً يمثل علامتك التجارية ويحقق النتائج.">لننشئ موقعاً إلكترونياً مذهلاً يمثل علامتك التجارية ويحقق النتائج.</p>
+                <a href="#contact" class="btn btn-primary" data-en="Get a Free Quote" data-ar="احصل على عرض سعر مجاني">احصل على عرض سعر مجاني</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">◈</span>
+                        <span class="logo-text">Future Web</span>
+                    </a>
+                    <p data-en="Professional web solutions that transform your ideas into stunning digital experiences." data-ar="حلول ويب احترافية تحول أفكارك إلى تجارب رقمية مذهلة.">حلول ويب احترافية تحول أفكارك إلى تجارب رقمية مذهلة.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/future_web2025" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/Futureweb_bot" target="_blank" aria-label="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#services" data-en="Services" data-ar="الخدمات">الخدمات</a></li>
+                        <li><a href="#pricing" data-en="Pricing" data-ar="الأسعار">الأسعار</a></li>
+                        <li><a href="#why-us" data-en="Why Us" data-ar="لماذا نحن">لماذا نحن</a></li>
+                        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Services" data-ar="خدماتنا">خدماتنا</h4>
+                    <ul>
+                        <li><a href="#services" data-en="Web Design" data-ar="تصميم المواقع">تصميم المواقع</a></li>
+                        <li><a href="#services" data-en="E-Commerce" data-ar="التجارة الإلكترونية">التجارة الإلكترونية</a></li>
+                        <li><a href="#services" data-en="SEO" data-ar="تحسين محركات البحث">تحسين محركات البحث</a></li>
+                        <li><a href="#services" data-en="Hosting" data-ar="الاستضافة">الاستضافة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-en="Contact" data-ar="اتصل بنا">اتصل بنا</h4>
+                    <ul>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            <a href="https://t.me/Futureweb_bot" target="_blank" data-en="Telegram" data-ar="تليجرام">تليجرام</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13ZM13 9H11V7H13Z"/>
+                            </svg>
+                            <span data-en="Available 24/7" data-ar="متاح على مدار الساعة">متاح على مدار الساعة</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Future Web. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">جميع الحقوق محفوظة.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
